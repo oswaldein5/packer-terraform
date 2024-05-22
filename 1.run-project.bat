@@ -9,7 +9,7 @@ REM `INFO | WARNING | ERROR | DEBUG | TRACE`
 set TF_LOG=INFO
 set TF_LOG_PATH=terraform.log
 
-REM step.01: Create the necessary resources in Azure using Terraform prior to building the image.
+REM step.01: Create the necessary resources in Azure using Terraform prior to building the image
 cd terraform-res
 terraform init
 terraform plan
@@ -20,7 +20,7 @@ cd ..\packer
 packer init .
 packer build .
 
-REM step.03: Create Virtual Machines on cloud providers [AWS, AZURE] using the image created with Packer via Terraform
+REM step.03: Create Virtual Machines via Terraform on cloud providers [AWS, AZURE] using the image created with Packer
 cd ..\terraform-vm
 terraform init
 terraform plan
