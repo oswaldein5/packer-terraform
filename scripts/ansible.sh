@@ -1,10 +1,10 @@
 #!/bin/bash -eux
 
-# Instalar repositorio de Ansible
+# Install Ansible repository
 sudo apt -y update && sudo apt-get -y upgrade
 sudo apt -y install software-properties-common
 sudo apt-add-repository ppa:ansible/ansible
 
-# Instalar Ansible
+# Install Ansible
 sudo apt -y update
 sudo apt -y install ansible

@@ -2,33 +2,33 @@
 - hosts: all
   become: true
   tasks:
-    - name: Añadir repositorio e instalar Nodejs
+    - name: Add repository and install Nodejs
       shell: "curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - && sudo apt-get install -y nodejs"
 
-    - name: Instalar build-essential
+    - name: Install build-essential
       apt:
         name: build-essential
         state: present
 
-    - name: Instalar pm2
+    - name: Install pm2
       command: npm install pm2@latest -g
 
-    - name: Instalar servidor web Nginx
+    - name: Install web server Nginx
       apt:
         name: nginx
         state: present
 
-    - name: Eliminar archivos default de Nginx
+    - name: Delete default Nginx files
       file:
         path: /etc/nginx/sites-available/default
         state: absent
 
-    - name: Eliminar archivos default de Nginx
+    - name: Delete default Nginx files
       file:
         path: /etc/nginx/sites-enabled/default
         state: absent
 
-    - name: Copiar archivo configuración de Nginx
+    - name: Copy Nginx configuration file
       copy:
         src: /tmp/nginx.conf
         dest: /etc/nginx/sites-available
@@ -36,7 +36,7 @@
         group: www-data
         mode: "644"
 
-    - name: Crear enlace simbólico del archivo conf. de Nginx
+    - name: Create symbolic link of the Nginx configuration file
       file:
         src: /etc/nginx/sites-available/nginx.conf
         dest: /etc/nginx/sites-enabled/nginx.conf
