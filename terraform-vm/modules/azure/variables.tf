@@ -1,19 +1,10 @@
 #* Declare variables
 
-variable "image_name" {
-  description = "Image name"
-  type        = string
-}
+variable "image_name" {}
 
-variable "gallery_group_name" {
-  description = "Gallery group name"
-  type        = string
-}
+variable "gallery_group_name" {}
 
-# variable "gallery_name" {
-#   description = "Gallery name"
-#   type        = string
-# }
+# variable "gallery_name" {}
 
 variable "tags" {
   description = "Project Tags"
